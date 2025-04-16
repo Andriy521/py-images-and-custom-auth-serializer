@@ -18,7 +18,6 @@ class CreateTokenView(ObtainAuthToken):
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
     def post(self, request, *args, **kwargs):
-        response = super().post(request, *args, **kwargs)
         token = Token.objects.get(
             user=self.serializer_class(
                 context={"request": request},
