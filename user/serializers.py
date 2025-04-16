@@ -1,4 +1,7 @@
-from django.contrib.auth import get_user_model, authenticate
+from django.contrib.auth import (
+    get_user_model,
+    authenticate,
+)
 from rest_framework import serializers
 from django.utils.translation import gettext_lazy as _
 
@@ -39,7 +42,7 @@ class AuthTokenSerializer(serializers.Serializer):
 
         user = authenticate(
             request=self.context.get("request"),
-            username=email,
+            email=email,
             password=password,
         )
 
